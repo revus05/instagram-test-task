@@ -1,9 +1,9 @@
-import { InputHTMLAttributes, useId } from 'react'
+import { InputHTMLAttributes, ReactNode, useId } from 'react'
 import { twMerge } from 'tailwind-merge'
 import checkedSVG from '../../../../public/checked.svg'
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
-	label: string
+	label: ReactNode
 }
 
 const Checkbox = ({ label, className, checked, ...props }: Props) => {
