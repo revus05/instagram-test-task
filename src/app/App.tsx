@@ -8,10 +8,14 @@ const App = () => {
 		<div className={'flex'}>
 			<NavBar />
 			<div className={'ml-[244px] flex grow'}>
-				<Routes>
-					<Route path={'/'} element={<Profile />}></Route>
-					<Route path={'/editProfile'} element={<EditProfile />}></Route>
-				</Routes>
+				<main className={'grow'}>
+					<div className={'w-[935px] mx-auto pt-[1.875rem] px-5'}>
+						<Routes>
+							<Route path={'/'} element={<Profile />}></Route>
+							<Route path={'/editProfile'} element={<EditProfile />}></Route>
+						</Routes>
+					</div>
+				</main>
 			</div>
 		</div>
 	)

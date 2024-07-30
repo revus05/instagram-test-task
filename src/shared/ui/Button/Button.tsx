@@ -13,7 +13,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			<button
 				{...props}
 				ref={ref} // Передача ref
-				className={twMerge(`${button({ variant, size })} ${className}`)}
+				className={twMerge(button({ variant, size }), className)}
 			>
 				{children}
 			</button>
@@ -30,6 +30,7 @@ const button = cva(
 				primary: 'bg-primary hover:bg-primary-active text-white',
 				secondary: 'bg-secondary-btn hover:bg-secondary-btn-active',
 				empty: 'bg-transparent p-2',
+				link: 'bg-transparent text-[#0095F6] text-[15px] font-normal',
 			},
 			size: {
 				md: 'h-8',

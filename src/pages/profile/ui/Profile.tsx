@@ -9,14 +9,12 @@ const Profile = () => {
 	const [{ profile }] = useUnit([store])
 
 	return (
-		<main className={'grow'}>
-			<div className={'w-[935px] mx-auto pt-[1.875rem] px-5'}>
-				<ProfileHeader profile={profile} />
-				<Stories />
-				<Posts posts={profile.posts.data} />
-			</div>
+		<>
+			<ProfileHeader profile={profile} />
+			<Stories />
+			<Posts posts={profile.posts.data} />
 			<Footer />
-		</main>
+		</>
 	)
 }
 
