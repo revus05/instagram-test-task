@@ -4,9 +4,10 @@ import Button from '../../../shared/ui/Button/Button.tsx'
 import { useUnit } from 'effector-react'
 import store from '../../../app/store.ts'
 import Input from '../../../shared/ui/Input/Input.tsx'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import Textarea from '../../../shared/ui/Textarea/Textarea.tsx'
 import Checkbox from '../../../shared/ui/Checkbox/Checkbox.tsx'
+import { editUser } from '../../../features/user/editUser/editUser.ts'
 
 const EditProfile = () => {
 	const [{ user }] = useUnit([store])
@@ -18,6 +19,21 @@ const EditProfile = () => {
 	const [phoneNumber, setPhoneNumber] = useState<string>(user.phoneNumber)
 	const [gender, setGender] = useState<string>(user.gender)
 	const [accountSuggestions, setAccountSuggestions] = useState(user.accountSuggestions)
+
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault()
+		editUser({
+			name,
+			username,
+			bio,
+			email,
+			phoneNumber,
+			gender,
+			accountSuggestions,
+			image: user.image,
+			id: user.id,
+		})
+	}
 
 	return (
 		<div className={'rounded-[3px] border-[1px] flex'}>
@@ -120,7 +136,7 @@ const EditProfile = () => {
 					</p>
 				</div>
 			</div>
-			<div className={'grow pt-8'}>
+			<form onSubmit={handleSubmit} className={'grow pt-8'}>
 				<div className={'flex'}>
 					<div className={'w-[194px] flex justify-end'}>
 						<img src={user.image} alt="avatar" className={'rounded-full h-[2.375rem] w-[2.375rem]'} />
@@ -275,7 +291,7 @@ const EditProfile = () => {
 						</Button>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	)
 }
