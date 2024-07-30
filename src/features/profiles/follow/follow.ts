@@ -7,8 +7,12 @@ export const handleFollow = (state: State) => {
 	if (!state.profile.isFollowed) {
 		return {
 			...state,
-			isFollowed: true,
-			followers: state.profile.followers + 1,
+			profile: {
+				...state.profile,
+				isFollowed: true,
+				followers: state.profile.followers + 1,
+			},
 		}
 	}
+	return state
 }

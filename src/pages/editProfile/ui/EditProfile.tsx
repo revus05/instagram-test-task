@@ -15,7 +15,7 @@ import EditGender from './editFields/EditGender.tsx'
 import EditAccountSuggestions from './editFields/EditAccountSuggestions.tsx'
 
 const EditProfile = () => {
-	const [{ user }] = useUnit([store])
+	const [{ user }] = useUnit([store, editUser])
 
 	const [name, setName] = useState<string>(user.name)
 	const [newUsername, setNewUsername] = useState<string>(user.username)
