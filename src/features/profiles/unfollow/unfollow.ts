@@ -7,8 +7,12 @@ export const handleUnfollow = (state: State) => {
 	if (state.profile.isFollowed) {
 		return {
 			...state,
-			isFollowed: false,
-			followers: state.profile.followers - 1,
+			profile: {
+				...state.profile,
+				isFollowed: false,
+				followers: state.profile.followers - 1,
+			},
 		}
 	}
+	return state
 }
