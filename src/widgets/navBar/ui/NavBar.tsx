@@ -73,7 +73,7 @@ const NavBar = () => {
 	]
 
 	return (
-		<aside className={'px-3 pt-10 w-[244px] h-svh border-r-[1px] border-[#DBDBDB] fixed'}>
+		<aside className={'px-3 pt-10 w-[244px] h-svh border-r-[1px] border-[#DBDBDB] fixed bg-white'}>
 			<div className={'px-3'}>
 				<Link to={'/'}>
 					<img src="/logo.svg" alt="logo" />
